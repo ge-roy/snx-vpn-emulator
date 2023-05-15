@@ -1,5 +1,9 @@
 ## SNX VPN Emulator
 
+### Description
+
+Simple CLI tool which can create a QEMU based VM with SNX preinstalled to support multiple VPN connections on host OS at the same time.
+
 ### What you'll need:
 
 - python3:
@@ -44,7 +48,7 @@ Not macOS user? You can use any pkg manager available on your system to install 
     \
     `cat src/img/bionic-cloudimg-amd64_* > src/img/bionic-cloudimg-amd64-XXXX.img.tar.bz2`
     \
-    `tar xjvf src/img/bionic-cloudimg-amd64-XXXX.img.tar.bz2 -C /Users/roy/Downloads/`
+    `tar xjvf src/img/bionic-cloudimg-amd64-XXXX.img.tar.bz2 -C ~/Downloads/`
 
 
 3. Run **sve** tool without any parameter to init app's home folder and default config file:
@@ -62,10 +66,18 @@ Not macOS user? You can use any pkg manager available on your system to install 
 \
 <img src="assets/images/sve_conf.png" width="60%" height="">
 
+### Usage
+
+- `sve -h` to see a help;
+- `sve -gc` to get a config file path;
+- `sve -c <connection_name>` to create/start VM with SNX connection inside and connect to it.
+\
+   macOS users can change app association for .command files (press `command + i` on a file and select new default app in "Open with" menu) so each connection will be opened in your favorite terminal emulator.
+
 ### Summary
 
 > If using your own linux image, make sure its hostname contains `vpn-snx` substring (in most distros edit _/etc/hostname_).
-> Change login credentials in conf.ini file if needed (use `sve -gc` to get config path).
+> Change login credentials in conf.ini file if needed.
 
 > stoken cli tool should be configured in a way to use one password for token decryption and PIN.
 
